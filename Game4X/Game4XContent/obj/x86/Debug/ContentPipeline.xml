@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Textures\TileSets\highlight.png</Source>
+      <Name>Textures\TileSets\highlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\TileSets\highlight.xnb</Output>
+      <Time>2014-04-14T14:46:18.8601916-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TileSets\mousemap.png</Source>
+      <Name>Textures\TileSets\mousemap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\TileSets\mousemap.xnb</Output>
+      <Time>2014-04-14T14:32:54.4911843-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\HUD.png</Source>
+      <Name>Textures\HUD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\HUD.xnb</Output>
+      <Time>2014-04-15T19:24:37.9080384-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TileSets\7hexhighlight.png</Source>
+      <Name>Textures\TileSets\7hexhighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\TileSets\7hexhighlight.xnb</Output>
+      <Time>2014-04-15T19:42:01.4407163-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TileSets\19hexhighlight.png</Source>
+      <Name>Textures\TileSets\19hexhighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\TileSets\19hexhighlight.xnb</Output>
+      <Time>2014-04-15T19:56:52.4066854-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TileSets\select.png</Source>
+      <Name>Textures\TileSets\select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\TileSets\select.xnb</Output>
+      <Time>2014-04-15T20:24:25.6742469-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Unit.png</Source>
+      <Name>Textures\Unit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Unit.xnb</Output>
+      <Time>2014-04-19T11:25:35.3112084-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Courier New.spritefont</Source>
+      <Name>Textures\Courier New</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Courier New.xnb</Output>
+      <Time>2014-04-16T12:59:53.9595007-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TileSets\tileset.png</Source>
+      <Name>Textures\TileSets\tileset</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\TileSets\tileset.xnb</Output>
+      <Time>2014-04-16T14:12:27.3557152-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Settler.png</Source>
+      <Name>Textures\Settler</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Settler.xnb</Output>
+      <Time>2014-05-05T13:57:29.5667763-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\City.png</Source>
+      <Name>Textures\City</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\City.xnb</Output>
+      <Time>2014-08-20T19:30:19.2917889-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4XContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4XContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-08-17T14:04:03.578347-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

@@ -1,0 +1,12 @@
+Content\Textures\TileSets\highlight.xnb
+Content\Textures\TileSets\mousemap.xnb
+Content\Textures\HUD.xnb
+Content\Textures\TileSets\7hexhighlight.xnb
+Content\Textures\TileSets\19hexhighlight.xnb
+Content\Textures\TileSets\select.xnb
+Content\Textures\Unit.xnb
+Content\Textures\Courier New.xnb
+Content\Textures\TileSets\tileset.xnb
+Content\Textures\Settler.xnb
+Content\Textures\City.xnb
+Content\Textures\Unit.png
