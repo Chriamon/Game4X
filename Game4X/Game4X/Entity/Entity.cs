@@ -8,8 +8,8 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Game4X.Entity
 {
-    //the base entity class, this is for any entity, they all need these methods implemented
-    public class Entity
+    //the base entity class, this is for any entity, they all use these methods
+    public class Entity : IHasUIObject
     {
         protected int hp;
 
@@ -25,12 +25,16 @@ namespace Game4X.Entity
         protected Rectangle TextureRectangle //the rectangle within the texture, outlines exactly what to draw for this entity
         {get; set;}
 
+        protected UI.UIObject UIObject //The UIObject associated with this entity. When this unit is selected it will set this UIObject as active.
+        {get; set;}
+
         public int owner //the playernumber of who owns this entity (if anyone does)
         { get; set; }
 
         public virtual void Initialize()
         {
-            owner = 0;
+            this.UIObject = new UI.UIObject();
+            this.UIObject.ParentObject = this;
         }
 
         public virtual void LoadTexture(ContentManager Content, String Texture)
@@ -38,11 +42,18 @@ namespace Game4X.Entity
             this.Texture = Content.Load<Texture2D>(Texture);
         }
 
-        public Entity(Texture2D EntityText)
+        public Entity(Texture2D EntityTexture)
         {
             this.Initialize();
-            this.Texture = EntityText;
-            this.TextureRectangle = new Rectangle(0, 0, EntityText.Width, EntityText.Height);
+            this.Texture = EntityTexture;
+            this.TextureRectangle = new Rectangle(0, 0, EntityTexture.Width, EntityTexture.Height);
+        }
+
+        public Entity(Texture2D EntityTexture, Rectangle EntityTextureRectangle)
+        {
+            this.Initialize();
+            this.Texture = EntityTexture;
+            this.TextureRectangle = EntityTextureRectangle;
         }
 
         //called whenever this entity is to take damage
@@ -58,16 +69,8 @@ namespace Game4X.Entity
         /// </summary>
         public virtual void OnSelect()
         {
-            
+            UI.HUD.SetActiveUIObject(this.UIObject);
         }
-
-        ///// <summary>
-        ///// Runs everytime the game's "Update" loop is run if this unit is currently selected **This is temporary, might not stay if turns out to not be too useful
-        ///// </summary>
-        //public virtual void SelectedOnUpdate()
-        //{
-        //    
-        //}
 
         /// <summary>
         /// Runs right before the turn goes over to the next turn. If this returns false, prevents the next turn from happening (and stops running other entity's TurnTick as a result)
@@ -131,19 +134,26 @@ namespace Game4X.Entity
                            Vector2.Zero,
                            1.0f,
                            SpriteEffects.None,
-                           0.0f);
-            
+                           0.0f);      
 
         }
 
-        //Going to have the HUD draw itself, and the OnSelect() command will tell the HUD what to display.
-        ///// <summary>
-        ///// Draws the HUD elements for this unit, this is only called while the unit is selected
-        ///// </summary>
-        ///// <param name="spriteBatch"></param>
-        //public virtual void DrawHUD(SpriteBatch spriteBatch)
-        //{
+        public void SetAsActiveUI()
+        {
+            UI.HUD.SetActiveUIObject(UIObject);
+        }
 
-        //}
+        public void OnIconClicked()
+        {
+            SetAsActiveUI();
+        }
+
+        /// <summary>
+        /// Returns a builder for the specified type of Entity.
+        /// </summary>
+        public static EntityBuilder GetBuilder(Type T)
+        {
+            return new EntityBuilder(T, 100);
+        }
     }
 }

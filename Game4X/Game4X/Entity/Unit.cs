@@ -19,6 +19,9 @@ namespace Game4X.Entity
             this.Initialize();
             this.Texture = UnitTexture;
             this.TextureRectangle = new Rectangle(0, 0, UnitTexture.Width, UnitTexture.Height);
+
+            //>>>Create the UI options that will exist upon selecting a unit i.e. Attack Move, Move, Fortify, Standing orders submenu, etc.
+
         }
 
         /// <summary>
@@ -45,5 +48,6 @@ namespace Game4X.Entity
 
             return false;
         }
+
     }
 }

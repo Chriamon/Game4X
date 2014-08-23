@@ -79,7 +79,7 @@ namespace Game4X
             select = Content.Load<Texture2D>(@"Textures\TileSets\select");
             defaultSpriteFont = Content.Load<SpriteFont>(@"Textures\Courier New");
             Tile.TileSetTexture = Content.Load<Texture2D>(@"Textures\TileSets\tileset");
-            HUD.LoadContent(Content);
+            UI.HUD.LoadContent(Content);
 
             //Currently randomly generates a map when a new TileMap is created, todo: load/save map from files, actual map generation
             theMap = new TileMap(Content.Load<Texture2D>(@"Textures\TileSets\mousemap"));
@@ -364,8 +364,8 @@ namespace Game4X
                     0.0f);
             }
 
-            //Draw the HUD
-            HUD.Draw(spriteBatch);
+            //Pass the spritebatch to the HUD to draw the UI
+            UI.HUD.Draw(spriteBatch);
 
             spriteBatch.End();
             base.Draw(gameTime);

@@ -6,17 +6,33 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 
-namespace Game4X
+namespace Game4X.UI
 {
-    class HUD
+    static class HUD
     {
         private static Texture2D baseHud;
         private static SpriteFont spriteFont;
+        private static UIObject ActiveUIObject; //The ActiveUIObject is the object that the HUD will use to draw the large bottom HUD area stuff
 
         public static void LoadContent(ContentManager Content)
         {
             baseHud = Content.Load<Texture2D>(@"Textures\HUD");
             spriteFont = Content.Load<SpriteFont>(@"Textures\Courier New");
+        }
+
+        public static void SetActiveUIObject(UIObject UIobj)
+        {
+            ActiveUIObject = UIobj;
+        }
+
+        public static UIObject GetActiveUIObject()
+        {
+            return ActiveUIObject;
+        }
+
+        public static void ClearActiveUIObject()
+        {
+            ActiveUIObject = null;
         }
 
         /// <summary>

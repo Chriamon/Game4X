@@ -10,6 +10,8 @@ namespace Game4X.Entity
 {
     class City : Entity
     {
+        private EntityWorkshop EntityWorkshop; //A workshop gives the city a production queue
+
         public City(Texture2D CityTexture)
             : base(CityTexture)
         {
@@ -18,14 +20,6 @@ namespace Game4X.Entity
             this.TextureRectangle = new Rectangle(0, 0, CityTexture.Width, CityTexture.Height);
         }
 
-        /// <summary>
-        /// Override OnSelect to set the hud up for CITY mode.
-        /// </summary>
-        public override void OnSelect()
-        {
-            //>>> Add the information necessarry to the HUD class for it to draw the City HUD
-
-            base.OnSelect();
-        }
+        
     }
 }
