@@ -17,5 +17,13 @@ namespace Game4X.Entity
             this.Texture = BuildingTexture;
             this.TextureRectangle = new Rectangle(0, 0, BuildingTexture.Width, BuildingTexture.Height);
         }
+
+        /// <summary>
+        /// Returns a builder for the specified type of Entity.
+        /// </summary>
+        public override EntityBuilder GetBuilder()
+        {
+            return new EntityBuilder(typeof(Building), ProductionRequired);
+        }
     }
 }

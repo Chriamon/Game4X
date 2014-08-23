@@ -14,7 +14,7 @@ namespace Game4X.Entity
         //private List<EntityBuilder> BuilderList = new List<EntityBuilder>(); //Is this needed?
         private EntityBuilder CurrentBuilder;
         private Entity Parent;//The parent that owns this workshop, typically a city/building, but possibly a pregnant unit or something lol
-        private UI.UIObject UIObject;
+        public UI.UIObject UIObject;
 
         public EntityWorkshop(Entity Parent)
         {
@@ -23,10 +23,15 @@ namespace Game4X.Entity
             this.UIObject.ParentObject = Parent;
         }
 
-        public EntityWorkshop(Entity Parent, UI.UIObject UIObject)
+        /// <summary>
+        /// Construct a new EntityWorkshop
+        /// </summary>
+        /// <param name="Parent">The object that owns this EntityWorkshop</param>
+        /// <param name="UIObject">A UI Object for this Workshop.</param>
+        public EntityWorkshop(Entity Parent, UI.UIObject ParentUIObject)
         {
             this.Parent = Parent;
-            this.UIObject = UIObject;
+            this.UIObject = ParentUIObject;
         }
 
         /// <summary>

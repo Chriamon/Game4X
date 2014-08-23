@@ -46,14 +46,14 @@ namespace Game4X
             //TEMP MAP
             // Create Sample Map Data
             Rows[5].Columns[5].TileID = 2;
-            Entity.Unit u = new Entity.Unit(Main.UnitTexture);
+            Entity.Unit u = new Entity.Unit(Entity.TextureHelper.GetTexture((int)Entity.TextureHelper.EntityID.Unit));
             u.owner = 1;
             Rows[5].Columns[5].EntityList.Add(u);
             Rows[2].Columns[3].TileID = 3;
-            Rows[2].Columns[3].EntityList.Add(new Entity.Unit(Main.UnitTexture));
+            Rows[2].Columns[3].EntityList.Add(new Entity.Unit(Entity.TextureHelper.GetTexture((int)Entity.TextureHelper.EntityID.Unit)));
 
             Rows[7].Columns[3].TileID = 2;
-            Rows[7].Columns[3].EntityList.Add(new Entity.City(Main.CityTexture));
+            Rows[7].Columns[3].EntityList.Add(new Entity.City(Entity.TextureHelper.GetTexture((int)Entity.TextureHelper.EntityID.City)));
             //Rows[0].Columns[4].TileID = 3;
             //Rows[0].Columns[5].TileID = 1;
             //Rows[0].Columns[6].TileID = 1;

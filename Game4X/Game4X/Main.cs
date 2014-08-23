@@ -23,8 +23,6 @@ namespace Game4X
         //TODO: refactor this and put them in their own class
         public static Texture2D highlight;
         public static Texture2D select;
-        public static Texture2D UnitTexture;//TEMPORARY DEBUG TESTING
-        public static Texture2D CityTexture;//TEMPORARY DEBUG TESTING
         public static List<Entity.Unit> SelectedUnitList = new List<Entity.Unit>();
         SpriteFont defaultSpriteFont;//not used yet, but to be used to draw text if needed on the play field
         
@@ -73,8 +71,7 @@ namespace Game4X
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //This will need to be redone to call each unit's loadcontent to allow each unit to load it's own texture (as the HUD does)
-            UnitTexture = Content.Load<Texture2D>(@"Textures\Unit");
-            CityTexture = Content.Load<Texture2D>(@"Textures\City");
+            Entity.TextureHelper.LoadTextures(Content);
             highlight = Content.Load<Texture2D>(@"Textures\TileSets\highlight");
             select = Content.Load<Texture2D>(@"Textures\TileSets\select");
             defaultSpriteFont = Content.Load<SpriteFont>(@"Textures\Courier New");

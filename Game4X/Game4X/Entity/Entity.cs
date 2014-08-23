@@ -28,6 +28,9 @@ namespace Game4X.Entity
         protected UI.UIObject UIObject //The UIObject associated with this entity. When this unit is selected it will set this UIObject as active.
         {get; set;}
 
+        protected int ProductionRequired
+        { get; set; }
+
         public int owner //the playernumber of who owns this entity (if anyone does)
         { get; set; }
 
@@ -37,10 +40,10 @@ namespace Game4X.Entity
             this.UIObject.ParentObject = this;
         }
 
-        public virtual void LoadTexture(ContentManager Content, String Texture)
-        {
-            this.Texture = Content.Load<Texture2D>(Texture);
-        }
+        //public virtual void LoadTexture(ContentManager Content, String Texture)
+        //{
+        //    this.Texture = Content.Load<Texture2D>(Texture);
+        //}
 
         public Entity(Texture2D EntityTexture)
         {
@@ -151,9 +154,9 @@ namespace Game4X.Entity
         /// <summary>
         /// Returns a builder for the specified type of Entity.
         /// </summary>
-        public static EntityBuilder GetBuilder(Type T)
+        public virtual EntityBuilder GetBuilder()
         {
-            return new EntityBuilder(T, 100);
+            return new EntityBuilder(typeof(Entity), ProductionRequired);
         }
     }
 }

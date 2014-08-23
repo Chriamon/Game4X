@@ -100,6 +100,24 @@
       <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\City.xnb</Output>
       <Time>2014-08-20T19:30:19.2917889-04:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\Entity.png</Source>
+      <Name>Textures\Entity</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Entity.xnb</Output>
+      <Time>2014-08-23T10:21:54.9235235-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Building.png</Source>
+      <Name>Textures\Building</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Building.xnb</Output>
+      <Time>2014-08-23T10:21:20.5517729-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

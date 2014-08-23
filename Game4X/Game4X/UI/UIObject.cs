@@ -18,6 +18,11 @@ namespace Game4X.UI
         public List<UIObject> ChildrenUIObjects;    //A reference to all the children UI objects, these children are drawn by the HUD when this object is the active object.
         public UIObject ParentUIObject;             //A reference to the parent UIObject of this object.
 
+        public UIObject()
+        {
+            ChildrenUIObjects = new List<UIObject>();
+        }
+
         /// <summary>
         /// Called when this is clicked with the left mouse button.
         /// </summary>
@@ -61,6 +66,8 @@ namespace Game4X.UI
             
             return false;
         }
+
+
 
     }
 }

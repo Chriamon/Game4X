@@ -24,3 +24,5 @@ C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textu
 C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\TileSets\tileset.xnb
 C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Settler.xnb
 C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\City.xnb
+C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Entity.xnb
+C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Building.xnb

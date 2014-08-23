@@ -49,5 +49,12 @@ namespace Game4X.Entity
             return false;
         }
 
+        /// <summary>
+        /// Returns a builder for the specified type of Entity.
+        /// </summary>
+        public override EntityBuilder GetBuilder()
+        {
+            return new EntityBuilder(typeof(Unit), ProductionRequired);
+        }
     }
 }
