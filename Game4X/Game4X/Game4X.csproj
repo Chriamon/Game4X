@@ -115,6 +115,7 @@
     <Compile Include="Entity\EntityBuilder.cs" />
     <Compile Include="Entity\EntityWorkshop.cs" />
     <Compile Include="Entity\IHasUIObject.cs" />
+    <Compile Include="Entity\IHasWorkshop.cs" />
     <Compile Include="Entity\TextureHelper.cs" />
     <Compile Include="UI\UIObject.cs" />
     <Compile Include="UI\HUD.cs" />

@@ -36,6 +36,48 @@ namespace Game4X.UI
         }
 
         /// <summary>
+        /// Send a click to the HUD at the specified X/Y coordinates
+        /// </summary>
+        /// <param name="x">The x coordinate of the mouse click</param>
+        /// <param name="y">The y coordinate of the mouse click</param>
+        public static void OnClick(int x, int y)
+        {
+            //>> This function will need a LOT of cleanup eventually.
+
+            if (ActiveUIObject != null)
+            {
+                //There is an active UIObject
+                Rectangle IconRect;
+                if (ActiveUIObject.ChildrenUIObjects.Count > 0)
+                {
+                    //The ActiveUIObject has children
+                    foreach (UIObject obj in ActiveUIObject.ChildrenUIObjects)
+                    {
+                        IconRect = obj.DisplayRectangle;
+
+                        if (x > IconRect.X && x < IconRect.X + IconRect.Width && y > IconRect.Y && y < IconRect.Y + IconRect.Height)
+                        { 
+                            //The mouseclick is on this icon.
+                            obj.OnLeftClick();
+                            break;
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    IconRect = ActiveUIObject.DisplayRectangle;
+
+                    if (x > IconRect.X && x < IconRect.X + IconRect.Width && y > IconRect.Y && y < IconRect.Y + IconRect.Height)
+                    {
+                        //The mouseclick is on this icon.
+                        ActiveUIObject.OnLeftClick();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Draws the HUD and everything associated with the HUD layer
         /// </summary>
         /// <param name="spriteBatch"></param>
@@ -55,12 +97,31 @@ namespace Game4X.UI
             //Turn number
             spriteBatch.DrawString(spriteFont, Main.Turn.ToString(), new Vector2(Camera.ViewWidth * .9f + 50, 0), Color.White, 0, Vector2.Zero, .45f, SpriteEffects.None, 0.0f);
 
-            //HUD elements for selected entity
-            //>>>TODO: draw the HUD based on what is selected
-            //foreach (Entity.Entity u in Main.SelectedUnitList)
-            //{
-            //    u.DrawHUD(spriteBatch);
-            //}
+            //HUD elements for selected UIObject
+            //>> This section will need MASSIVE cleanup eventually.
+            if (ActiveUIObject != null)
+            {
+                //There is an active UIObject
+                int xoffset = 15;
+                if (ActiveUIObject.ChildrenUIObjects.Count > 0)
+                {
+                    //The ActiveUIObject has children
+                    foreach (UIObject obj in ActiveUIObject.ChildrenUIObjects)
+                    {
+                        obj.DisplayRectangle = new Rectangle(xoffset, Camera.ViewHeight - height, (int)(obj.IconRectangle.Width * obj.DisplayScale), (int)(obj.IconRectangle.Height * obj.DisplayScale));
+                        spriteBatch.Draw(obj.IconTexture, obj.DisplayRectangle ,obj.IconRectangle, Color.HotPink, 0, Vector2.Zero, SpriteEffects.None, 0);
+                        xoffset += obj.IconRectangle.Width;
+                    }
+                }
+                else
+                {
+                    //The ActiveUIObject has no children (this shouldn't happen in most cases)
+                    ActiveUIObject.DisplayRectangle = new Rectangle(xoffset, Camera.ViewHeight - height, (int)(ActiveUIObject.IconRectangle.Width * ActiveUIObject.DisplayScale), (int)(ActiveUIObject.IconRectangle.Height * ActiveUIObject.DisplayScale));
+                    spriteBatch.Draw(ActiveUIObject.IconTexture, new Rectangle(xoffset, Camera.ViewHeight - height, (int)(ActiveUIObject.IconRectangle.Width * ActiveUIObject.DisplayScale), (int)(ActiveUIObject.IconRectangle.Height * ActiveUIObject.DisplayScale)), ActiveUIObject.IconRectangle, Color.HotPink, 0, Vector2.Zero, SpriteEffects.None, 0);
+                }
+                
+            }
+           
         }
     }
 }

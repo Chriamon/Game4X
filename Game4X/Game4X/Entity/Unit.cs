@@ -54,7 +54,9 @@ namespace Game4X.Entity
         /// </summary>
         public override EntityBuilder GetBuilder()
         {
-            return new EntityBuilder(typeof(Unit), ProductionRequired);
+            EntityBuilder Builder = new EntityBuilder(TextureHelper.EntityID.Unit, ProductionRequired);
+            Builder.ParentEntity = new Unit(this.Texture);
+            return Builder;
         }
     }
 }

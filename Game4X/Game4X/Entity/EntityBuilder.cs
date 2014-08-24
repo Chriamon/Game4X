@@ -10,17 +10,18 @@ namespace Game4X.Entity
     /// </summary>
     public class EntityBuilder : IHasUIObject
     {
-        public Type EntityType;
+        public Entity ParentEntity;
+        public TextureHelper.EntityID EntityType;
         public int ProductionRequired; //Temporary, eventually switch to a resources struct with specific resources?
         private int ProductionCompleted;
         public UI.UIObject UIObject;
         public EntityWorkshop ParentWorkshop;
 
-        public EntityBuilder(Type EntityType, int ProductionRequired)
+        public EntityBuilder(TextureHelper.EntityID EntityType, int ProductionRequired)
         {
             this.EntityType = EntityType;
             this.ProductionRequired = ProductionRequired;
-            this.UIObject = new UI.UIObject();
+            this.UIObject = new UI.UIObject(TextureHelper.GetTexture((int)EntityType));
             this.UIObject.ParentObject = this;
         }
 
@@ -44,5 +45,6 @@ namespace Game4X.Entity
 
             return false;
         }
+
     }
 }

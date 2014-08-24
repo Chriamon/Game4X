@@ -13,13 +13,16 @@ namespace Game4X.UI
         public Entity.IHasUIObject ParentObject;    //A reference to the object that this UIObject represents.
         public Texture2D IconTexture;               //The texture to use for this object's Icon.
         public Rectangle IconRectangle;             //The specific rectangle on the texture to use for this object's icon.
-        public double DisplayScale;                 //The scale to display the icon at.
+        public Rectangle DisplayRectangle;          //A rectangle for the last place that this icon was displayed on the UI.
+        public double DisplayScale = 1.0;           //The scale to display the icon at.
         public String Hotkey;                       //The key assigned to this UIObject
         public List<UIObject> ChildrenUIObjects;    //A reference to all the children UI objects, these children are drawn by the HUD when this object is the active object.
         public UIObject ParentUIObject;             //A reference to the parent UIObject of this object.
 
-        public UIObject()
+        public UIObject(Texture2D IconTexture)
         {
+            this.IconTexture = IconTexture;
+            this.IconRectangle = new Rectangle(0, 0, IconTexture.Width, IconTexture.Height); 
             ChildrenUIObjects = new List<UIObject>();
         }
 
@@ -34,7 +37,7 @@ namespace Game4X.UI
 
                 ParentObject.OnIconClicked(); //Run the parent object's IconClicked function
 
-                HUD.ClearActiveUIObject(); //>>clear the HUD?
+                //HUD.ClearActiveUIObject(); //>>clear the HUD?
             }
             else
             {

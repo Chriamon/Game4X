@@ -23,7 +23,7 @@ namespace Game4X.Entity
         /// </summary>
         public override EntityBuilder GetBuilder()
         {
-            return new EntityBuilder(typeof(Building), ProductionRequired);
+            return new EntityBuilder(TextureHelper.EntityID.Building, ProductionRequired);
         }
     }
 }

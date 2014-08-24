@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Game4X.Entity
 {
-    class City : Entity
+    class City : Entity, IHasWorkshop
     {
         private EntityWorkshop EntityWorkshop; //A workshop gives the city a production queue
 
@@ -23,7 +23,7 @@ namespace Game4X.Entity
         public override void Initialize()
         {
             //Initialize this object's UI object
-            this.UIObject = new UI.UIObject();
+            this.UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.City));
             this.UIObject.ParentObject = this;
 
             //Initialize a new EntityWorkshop
@@ -45,6 +45,13 @@ namespace Game4X.Entity
             }
             return base.OnTurnTick();
         }
-        
+
+
+        public void PlaceEntity(Entity E)
+        {
+            MapCell SourceCell = Main.theMap.Rows[mapy].Columns[mapx];
+
+            SourceCell.AddUnit(E);
+        }
     }
 }

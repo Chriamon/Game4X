@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace Game4X.Entity
 {
@@ -11,16 +14,18 @@ namespace Game4X.Entity
     /// </summary>
     public class EntityWorkshop : IHasUIObject
     {
-        //private List<EntityBuilder> BuilderList = new List<EntityBuilder>(); //Is this needed?
+        private List<EntityBuilder> BuilderList = new List<EntityBuilder>(); 
         private EntityBuilder CurrentBuilder;
-        private Entity Parent;//The parent that owns this workshop, typically a city/building, but possibly a pregnant unit or something lol
+        private IHasWorkshop Parent;//The parent that owns this workshop, typically a city/building, but possibly a pregnant unit or something lol
         public UI.UIObject UIObject;
 
-        public EntityWorkshop(Entity Parent)
+        public EntityWorkshop(IHasWorkshop Parent)
         {
             this.Parent = Parent;
-            this.UIObject = new UI.UIObject();
-            this.UIObject.ParentObject = Parent;
+            this.UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.Unknown));
+            this.UIObject.ParentObject = this;
+            this.UIObject.IconTexture = TextureHelper.GetTexture((int)TextureHelper.EntityID.Unknown);
+            this.UIObject.IconRectangle = new Rectangle(0, 0, UIObject.IconTexture.Width, UIObject.IconTexture.Height);
         }
 
         /// <summary>
@@ -28,7 +33,7 @@ namespace Game4X.Entity
         /// </summary>
         /// <param name="Parent">The object that owns this EntityWorkshop</param>
         /// <param name="UIObject">A UI Object for this Workshop.</param>
-        public EntityWorkshop(Entity Parent, UI.UIObject ParentUIObject)
+        public EntityWorkshop(IHasWorkshop Parent, UI.UIObject ParentUIObject)
         {
             this.Parent = Parent;
             this.UIObject = ParentUIObject;
@@ -40,8 +45,20 @@ namespace Game4X.Entity
         /// <param name="Builder"></param>
         public void AddBuilderToBuilderList(EntityBuilder Builder)
         {
-            //BuilderList.Add(Builder);
+            BuilderList.Add(Builder);
             UIObject.ChildrenUIObjects.Add(Builder.UIObject);
+            Builder.ParentWorkshop = this;  
+        }
+
+        /// <summary>
+        /// Adds the passed in builder to the BuilderList. Currently no checks for duplicates.
+        /// </summary>
+        /// <param name="Builder"></param>
+        public void RemoveBuilderFromBuilderList(EntityBuilder Builder)
+        {
+            BuilderList.Remove(Builder);
+            UIObject.ChildrenUIObjects.Remove(Builder.UIObject);
+            Builder = null;
         }
 
         /// <summary>
@@ -63,6 +80,13 @@ namespace Game4X.Entity
             if (CurrentBuilder != null)
             {
                 CurrentBuilder.AddProduction(AmountOfProduction);
+            
+                if (CurrentBuilder.Completed())
+                {
+                    Parent.PlaceEntity(CurrentBuilder.ParentEntity);                    //Place the Entity on the map
+                    AddBuilderToBuilderList(CurrentBuilder.ParentEntity.GetBuilder());  //Add a new builder to the list
+                    RemoveBuilderFromBuilderList(CurrentBuilder);                      //Remove the old builder from the builder list
+                }
             }
         }
 

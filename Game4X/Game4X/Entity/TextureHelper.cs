@@ -14,7 +14,8 @@ namespace Game4X.Entity
 
         public enum EntityID : int
         {
-            Entity = 0,
+            Unknown,
+            Entity,
             City,
             Building,
             Unit,
@@ -22,6 +23,7 @@ namespace Game4X.Entity
 
         public static void LoadTextures(ContentManager Content)
         {
+            TextureList.Add(Content.Load<Texture2D>(@"Textures\Test"));
             TextureList.Add(Content.Load<Texture2D>(@"Textures\Entity"));
             TextureList.Add(Content.Load<Texture2D>(@"Textures\City"));
             TextureList.Add(Content.Load<Texture2D>(@"Textures\Building"));

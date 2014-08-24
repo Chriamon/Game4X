@@ -36,7 +36,7 @@ namespace Game4X.Entity
 
         public virtual void Initialize()
         {
-            this.UIObject = new UI.UIObject();
+            this.UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.Entity));
             this.UIObject.ParentObject = this;
         }
 
@@ -156,7 +156,7 @@ namespace Game4X.Entity
         /// </summary>
         public virtual EntityBuilder GetBuilder()
         {
-            return new EntityBuilder(typeof(Entity), ProductionRequired);
+            return new EntityBuilder(TextureHelper.EntityID.Entity, ProductionRequired);
         }
     }
 }

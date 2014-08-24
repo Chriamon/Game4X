@@ -136,6 +136,8 @@ namespace Game4X
                 MapCell SelectedCell = theMap.Rows[tempPoint.Y].Columns[tempPoint.X];
 
                 SelectCell(tempPoint.Y, tempPoint.X);
+
+                UI.HUD.OnClick(Mouse.GetState().X, Mouse.GetState().Y);
             }
             if(ms.LeftButton == ButtonState.Released && !leftClickFlag)
             {
@@ -258,10 +260,17 @@ namespace Game4X
                 foreach (Entity.Entity E in SelectedCell.EntityList)
                 {
                     Entity.Unit U = E as Entity.Unit;
-                    if (U == null)
-                        continue;
-                    U.OnSelect();
-                    SelectedUnitList.Add(U);
+                    if (U != null)
+                    {
+                        //The Entity is a Unit
+                        U.OnSelect();
+                        SelectedUnitList.Add(U);
+                    }
+                    else
+                    {
+                        //The entity is not a unit, just run the base OnSelect
+                        E.OnSelect();
+                    }
                 }
             }
             else
@@ -284,13 +293,20 @@ namespace Game4X
 
                 for (int x = 0; x < theMap.MapWidth; x++)
                 {
-                    foreach (Entity.Entity U in theMap.Rows[y].Columns[x].EntityList)
+                    try
                     {
-                        if (!U.OnTurnTick())
+                        foreach (Entity.Entity U in theMap.Rows[y].Columns[x].EntityList)
                         {
-                            return;
+                            if (!U.OnTurnTick())
+                            {
+                                return;
+                            }
                         }
                     }
+                    catch (InvalidOperationException ex) 
+                    {
+                    }
+
                 }
             }
             Turn++;
@@ -312,6 +328,7 @@ namespace Game4X
             selectLoc = Vector2.Zero;
             selectPoint = Point.Zero;
             SelectedUnitList = new List<Entity.Unit>();
+            UI.HUD.ClearActiveUIObject();
         }
 
         /// <summary>
