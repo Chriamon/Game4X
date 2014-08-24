@@ -12,4 +12,7 @@ Content\Textures\City.xnb
 Content\Textures\Entity.xnb
 Content\Textures\Building.xnb
 Content\Textures\Test.xnb
+Content\Textures\Orc\Peon.xnb
+Content\Textures\Orc\Outpost.xnb
+Content\Textures\Orc\BuildIcon.xnb
 Content\Textures\Unit.png

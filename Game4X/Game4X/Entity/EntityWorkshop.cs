@@ -16,7 +16,7 @@ namespace Game4X.Entity
     {
         private List<EntityBuilder> BuilderList = new List<EntityBuilder>(); 
         private EntityBuilder CurrentBuilder;
-        private IHasWorkshop Parent;//The parent that owns this workshop, typically a city/building, but possibly a pregnant unit or something lol
+        public IHasWorkshop Parent;//The parent that owns this workshop, typically a city/building, but possibly a pregnant unit or something lol
         public UI.UIObject UIObject;
 
         public EntityWorkshop(IHasWorkshop Parent)
@@ -86,6 +86,7 @@ namespace Game4X.Entity
                     Parent.PlaceEntity(CurrentBuilder.ParentEntity);                    //Place the Entity on the map
                     AddBuilderToBuilderList(CurrentBuilder.ParentEntity.GetBuilder());  //Add a new builder to the list
                     RemoveBuilderFromBuilderList(CurrentBuilder);                      //Remove the old builder from the builder list
+                    CurrentBuilder = null;
                 }
             }
         }

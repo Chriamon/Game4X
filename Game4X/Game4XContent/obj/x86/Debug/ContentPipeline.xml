@@ -127,6 +127,33 @@
       <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Test.xnb</Output>
       <Time>2014-08-24T09:18:34.9820068-04:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\Orc\Peon.png</Source>
+      <Name>Textures\Orc\Peon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Orc\Peon.xnb</Output>
+      <Time>2014-08-24T17:08:19.2750561-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Orc\Outpost.png</Source>
+      <Name>Textures\Orc\Outpost</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Orc\Outpost.xnb</Output>
+      <Time>2014-08-24T17:15:03.0691518-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Orc\BuildIcon.png</Source>
+      <Name>Textures\Orc\BuildIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Matt\Desktop\Local Hat\Game4X\Game4X\Game4X\bin\x86\Debug\Content\Textures\Orc\BuildIcon.xnb</Output>
+      <Time>2014-08-24T17:47:07.3382137-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

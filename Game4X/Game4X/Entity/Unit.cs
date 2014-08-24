@@ -13,19 +13,27 @@ namespace Game4X.Entity
         protected int movement
         { get; set; }
 
-        public Unit(Texture2D UnitTexture)
-            : base(UnitTexture)
+        public Unit()
+            : base()
         {
-            this.Initialize();
-            this.Texture = UnitTexture;
-            this.TextureRectangle = new Rectangle(0, 0, UnitTexture.Width, UnitTexture.Height);
-
-            //>>>Create the UI options that will exist upon selecting a unit i.e. Attack Move, Move, Fortify, Standing orders submenu, etc.
-
+           Initialize();
+           this.Texture = TextureHelper.GetTexture((int)(TextureHelper.EntityID.Unit));
         }
 
         /// <summary>
-        /// Orders the unit to move to the specified row/column. This default method uses a default pathing
+        /// 
+        /// </summary>
+        public override void Initialize()
+        {
+            //>>>Create the UI options that will exist upon selecting a unit i.e. Attack Move, Move, Fortify, Standing orders submenu, etc.
+            this.UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.Unit));
+            this.UIObject.ParentObject = this;
+            this.DisplayScale = 1.0f;
+        }
+
+        /// <summary>
+        /// Orders the unit to move to the specified row/column. This default method uses a default pathing.
+        /// Only override if the unit moves differntly than default.
         /// </summary>
         /// <param name="row"></param>
         /// <param name="column"></param>
@@ -51,11 +59,12 @@ namespace Game4X.Entity
 
         /// <summary>
         /// Returns a builder for the specified type of Entity.
+        /// MUST be overridden for each unit
         /// </summary>
         public override EntityBuilder GetBuilder()
         {
             EntityBuilder Builder = new EntityBuilder(TextureHelper.EntityID.Unit, ProductionRequired);
-            Builder.ParentEntity = new Unit(this.Texture);
+            Builder.ParentEntity = new Unit();
             return Builder;
         }
     }

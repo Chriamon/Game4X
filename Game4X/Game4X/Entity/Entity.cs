@@ -25,6 +25,9 @@ namespace Game4X.Entity
         protected Rectangle TextureRectangle //the rectangle within the texture, outlines exactly what to draw for this entity
         {get; set;}
 
+        protected float DisplayScale 
+        { get; set; }
+
         protected UI.UIObject UIObject //The UIObject associated with this entity. When this unit is selected it will set this UIObject as active.
         {get; set;}
 
@@ -34,10 +37,14 @@ namespace Game4X.Entity
         public int owner //the playernumber of who owns this entity (if anyone does)
         { get; set; }
 
+        /// <summary>
+        /// Makes a default UIObject for this.
+        /// </summary>
         public virtual void Initialize()
         {
-            this.UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.Entity));
-            this.UIObject.ParentObject = this;
+            UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.Entity));
+            UIObject.ParentObject = this;
+            DisplayScale = 1.0f;
         }
 
         //public virtual void LoadTexture(ContentManager Content, String Texture)
@@ -45,11 +52,11 @@ namespace Game4X.Entity
         //    this.Texture = Content.Load<Texture2D>(Texture);
         //}
 
-        public Entity(Texture2D EntityTexture)
+        public Entity()
         {
             this.Initialize();
-            this.Texture = EntityTexture;
-            this.TextureRectangle = new Rectangle(0, 0, EntityTexture.Width, EntityTexture.Height);
+            this.Texture = TextureHelper.GetTexture((int)(TextureHelper.EntityID.Entity));
+            this.TextureRectangle = new Rectangle(0, 0, this.Texture.Width, this.Texture.Height);
         }
 
         public Entity(Texture2D EntityTexture, Rectangle EntityTextureRectangle)
@@ -135,7 +142,7 @@ namespace Game4X.Entity
                            PlayerColor,
                            0.0f,
                            Vector2.Zero,
-                           1.0f,
+                           DisplayScale,
                            SpriteEffects.None,
                            0.0f);      
 

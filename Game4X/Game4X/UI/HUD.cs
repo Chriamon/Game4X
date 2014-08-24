@@ -108,8 +108,8 @@ namespace Game4X.UI
                     //The ActiveUIObject has children
                     foreach (UIObject obj in ActiveUIObject.ChildrenUIObjects)
                     {
-                        obj.DisplayRectangle = new Rectangle(xoffset, Camera.ViewHeight - height, (int)(obj.IconRectangle.Width * obj.DisplayScale), (int)(obj.IconRectangle.Height * obj.DisplayScale));
-                        spriteBatch.Draw(obj.IconTexture, obj.DisplayRectangle ,obj.IconRectangle, Color.HotPink, 0, Vector2.Zero, SpriteEffects.None, 0);
+                        obj.DisplayRectangle = new Rectangle(xoffset, Camera.ViewHeight - height + 12, (int)(obj.IconRectangle.Width * obj.DisplayScale), (int)(obj.IconRectangle.Height * obj.DisplayScale));
+                        spriteBatch.Draw(obj.IconTexture, obj.DisplayRectangle ,obj.IconRectangle, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
                         xoffset += obj.IconRectangle.Width;
                     }
                 }

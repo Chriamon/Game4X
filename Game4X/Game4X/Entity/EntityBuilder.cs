@@ -28,7 +28,7 @@ namespace Game4X.Entity
         public void OnIconClicked()
         {
             ParentWorkshop.SetCurrentBuilder(this);
-            ParentWorkshop.SetAsActiveUI();
+            (ParentWorkshop.Parent as Entity).SetAsActiveUI();
         }
 
         public void AddProduction(int Production)
@@ -38,7 +38,7 @@ namespace Game4X.Entity
 
         public bool Completed()
         {
-            if (ProductionCompleted > ProductionRequired)
+            if (ProductionCompleted >= ProductionRequired)
             {
                 return true;
             }

@@ -116,6 +116,8 @@
     <Compile Include="Entity\EntityWorkshop.cs" />
     <Compile Include="Entity\IHasUIObject.cs" />
     <Compile Include="Entity\IHasWorkshop.cs" />
+    <Compile Include="Entity\Orc\Outpost.cs" />
+    <Compile Include="Entity\Orc\Peon.cs" />
     <Compile Include="Entity\TextureHelper.cs" />
     <Compile Include="UI\UIObject.cs" />
     <Compile Include="UI\HUD.cs" />

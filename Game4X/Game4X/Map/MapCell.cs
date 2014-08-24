@@ -57,9 +57,9 @@ namespace Game4X
 
         public void DrawUnits(SpriteBatch spriteBatch)
         {
-            foreach (Entity.Entity unit in EntityList)
+            foreach (Entity.Entity currEntity in EntityList)
             {
-                unit.DrawEntity(spriteBatch, mapx, mapy);
+                currEntity.DrawEntity(spriteBatch, mapx, mapy);
             }
         }
 

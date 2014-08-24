@@ -10,38 +10,42 @@ namespace Game4X.Entity
 {
     class City : Entity, IHasWorkshop
     {
-        private EntityWorkshop EntityWorkshop; //A workshop gives the city a production queue
+        protected EntityWorkshop Workshop; //A workshop gives the city a production queue
 
-        public City(Texture2D CityTexture)
-            : base(CityTexture)
+        public City()
+            : base()
         {
             this.Initialize();
-            this.Texture = CityTexture;
-            this.TextureRectangle = new Rectangle(0, 0, CityTexture.Width, CityTexture.Height);
+            this.Texture = TextureHelper.GetTexture((int)(TextureHelper.EntityID.City));
+            this.TextureRectangle = new Rectangle(0, 0, this.Texture.Width, this.Texture.Height);
         }
 
         public override void Initialize()
         {
             //Initialize this object's UI object
-            this.UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.City));
-            this.UIObject.ParentObject = this;
+            UIObject = new UI.UIObject(TextureHelper.GetTexture((int)TextureHelper.EntityID.City));
+            UIObject.ParentObject = this;
+
+            DisplayScale = 1.0f;
 
             //Initialize a new EntityWorkshop
-            EntityWorkshop = new EntityWorkshop(this);
+            Workshop = new EntityWorkshop(this);
 
             //Add the EntityWorkshop's UIObject as a child to this City's UIObject
-            UI.UIObject WorkshopUIObject = EntityWorkshop.UIObject;
+            UI.UIObject WorkshopUIObject = Workshop.UIObject;
             UIObject.ChildrenUIObjects.Add(WorkshopUIObject);
 
-            Unit u = new Unit(TextureHelper.GetTexture((int)TextureHelper.EntityID.Unit));//Temp
-            EntityWorkshop.AddBuilderToBuilderList(u.GetBuilder());
+            //Example of how to add a unit to the workshop. Eventually this should be cleaned up.
+            Unit u = new Unit();
+            Workshop.AddBuilderToBuilderList(u.GetBuilder());
+
         }
 
         public override bool OnTurnTick()
         {
-            if (EntityWorkshop != null)
+            if (Workshop != null)
             {
-                EntityWorkshop.AddProduction(100);//Temporary for testing
+                Workshop.AddProduction(100);//Temporary for testing
             }
             return base.OnTurnTick();
         }
